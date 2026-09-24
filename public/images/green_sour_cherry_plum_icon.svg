@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" class="inline-block align-middle">
+  <defs>
+    <!-- Main plum gradient: smooth, rich lime-chartreuse -->
+    <radialGradient id="plumGrad" cx="38%" cy="36%" r="62%">
+      <stop offset="0%" stop-color="#bef264" />
+      <stop offset="35%" stop-color="#84cc16" />
+      <stop offset="75%" stop-color="#4d7c0f" />
+      <stop offset="100%" stop-color="#365314" />
+    </radialGradient>
+    <!-- Secondary soft plum highlight -->
+    <radialGradient id="plumGlow" cx="32%" cy="30%" r="35%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="40%" stop-color="#d9f99d" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#84cc16" stop-opacity="0" />
+    </radialGradient>
+    <!-- Leaf gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="50%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#86efac" />
+    </linearGradient>
+    <!-- Stem gradient -->
+    <linearGradient id="stemGrad" x1="0%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#713f12" />
+      <stop offset="100%" stop-color="#a16207" />
+    </linearGradient>
+    <!-- Shadow under plum -->
+    <radialGradient id="dropShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#14532d" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#14532d" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ground contact shadow -->
+  <ellipse cx="32" cy="58" rx="18" ry="4" fill="url(#dropShadow)" />
+
+  <!-- Natural curved slender woody fruit stem (attached to plum apex) -->
+  <path d="M 32 23 C 31 16, 35 10, 42 7" fill="none" stroke="url(#stemGrad)" stroke-width="2.8" stroke-linecap="round" />
+  <!-- Small stem joint bud -->
+  <circle cx="42" cy="7" r="1.5" fill="#713f12" />
+
+  <!-- Fresh wild plum leaf with serrated subtle tip and vein -->
+  <path d="M 34 19 C 43 14, 54 16, 57 21 C 55 28, 44 30, 34 22 Z" fill="url(#leafGrad)" />
+  <path d="M 35 20 C 42 19, 49 20, 56 21" fill="none" stroke="#166534" stroke-width="0.9" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Spherical stone-fruit body of the Green Sour Cherry Plum (round wild drupe) -->
+  <circle cx="32" cy="38" r="19" fill="url(#plumGrad)" />
+
+  <!-- Plum stone-fruit suture line (characteristic gentle vertical groove of Prunus genus) -->
+  <path d="M 32 19 C 30 26, 30 48, 33 57" fill="none" stroke="#365314" stroke-width="1.2" stroke-linecap="round" opacity="0.45" />
+  <path d="M 33 20 C 31 27, 31 47, 34 56" fill="none" stroke="#ecfccb" stroke-width="0.8" stroke-linecap="round" opacity="0.35" />
+
+  <!-- Glossy smooth reflection highlight on upper left curve -->
+  <ellipse cx="26" cy="30" rx="9" ry="6" transform="rotate(-25 26 30)" fill="url(#plumGlow)" />
+  <!-- Tiny crisp specular reflection dot -->
+  <circle cx="23" cy="28" r="2" fill="#ffffff" opacity="0.9" />
+</svg>
