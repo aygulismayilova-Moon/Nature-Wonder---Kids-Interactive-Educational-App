@@ -1,0 +1,179 @@
+{
+  "title": "Doğa ve Mucizeler - Türkçe Konuşma Sentezi Sözlüğü",
+  "language": "tr-TR",
+  "version": "1.0",
+  "description": "Text-to-Speech (TTS), Yapay Zeka ses modelleri ve seslendirme kayıtları için Türkçe sözlük ve cümle veritabanı",
+  "categories": [
+    {
+      "id": "system_ui",
+      "name": "Temel Sistem ve Menü İfadeleri",
+      "items": [
+        "Doğa ve Mucizeler",
+        "Çocuk Kaşifi",
+        "1. Çevremizdeki Dünya",
+        "2. Geometrik Şekiller",
+        "3. Yiyecekler ve Duyular",
+        "4. Yapboz Oyunu",
+        "5. Sayılar ve Alfabe",
+        "6. Büyük Bilgi Yarışması",
+        "1.1 Hayvanlar (1.000 Katalog)",
+        "1.2 Doğa Unsurları",
+        "1.3 Evren Unsurları",
+        "2.1 Düzlem Şekiller",
+        "2.2 Katı Şekiller",
+        "Şekil Dedektifi Oyunu",
+        "Tat ve Sıcaklık Kaşifi",
+        "Duyu Sıralama Oyunu",
+        "5.1 Alfabe (A-Z)",
+        "5.2 Sayılar ve Sayma (1-100)",
+        "5.3 Harf ve Sayı Oyunu",
+        "Kaşif Günlüğü",
+        "Başarılar ve İstatistikler",
+        "Sesi Dinle",
+        "Seslendir",
+        "Videoyu İzle",
+        "Ses Kapalı",
+        "Ses ve Konuşma Açık",
+        "Meraklı Küçük Zihinler İçin Tasarlandı"
+      ]
+    },
+    {
+      "id": "greetings_and_reactions",
+      "name": "Karşılama ve Tebrik Cümleleri",
+      "items": [
+        "Merhaba arkadaşım! Seninle tertemiz ve doğal bir Türkçe ile konuşuyorum.",
+        "Doğa ve Mucizelere hoş geldiniz! Harika dünyamızı birlikte keşfedelim!",
+        "Aferin! Bütün sorulara doğru cevap verdin!",
+        "Muhteşem Zafer! Bütün soruları eksiksiz bildin!",
+        "Harika Çaba! Öğrenmeye ve keşfetmeye devam et!",
+        "Doğru cevap! Sen harikasın!",
+        "Aferin! Doğru bildin!",
+        "Çok yakındı! Tekrar dene, başarabilirsin!",
+        "Tebrikler! Yeni bir başarı rozeti kazandın!",
+        "Yaşasın! Bütün yiyecekleri doğru kaselere yerleştirdin!",
+        "Harika! Yapboz başarıyla tamamlandı!",
+        "Günün yeni doğa mucizesini öğrendin!",
+        "Lütfen önce isminizi yazın!",
+        "İsmini yaz ve büyük maceraya başla!",
+        "Kusursuz puan! Gerçek bir Şekil Dedektifisin!"
+      ]
+    },
+    {
+      "id": "animals",
+      "name": "Hayvanlar Alemi",
+      "items": [
+        { "name": "Aslan", "sound": "Görkemli Aslan Kükremesi", "speech": "Aslanlar savananın kralları olarak bilinir! Sürü halinde sıcak aile gruplarında yaşarlar." },
+        { "name": "Afrika Fili", "sound": "Fil Borusu Sesi", "speech": "Filler yeryüzünde yaşayan en büyük kara hayvanlarıdır. Uzun hortumları su içmek ve yaprak toplamak için harika bir el gibidir!" },
+        { "name": "Maymun", "sound": "Neşeli Maymun Sesi", "speech": "Şempanzeler ağaç dallarında sallanmayı çok severler. Çok zekidirler ve insanlara en yakın canlılardandır." },
+        { "name": "Kaplan", "sound": "Kaplan Kükremesi", "speech": "Kaplanlar dünyanın en büyük vahşi kedileridir. Çizgili kürkleri ormanda gizlenmelerini sağlar." },
+        { "name": "Zürafa", "sound": "Zürafa Sesi", "speech": "Zürafalar dünyanın en uzun boylu hayvanlarıdır. Uzun boyunları sayesinde ağaçların en taze yapraklarına ulaşırlar." },
+        { "name": "Çita", "sound": "Çita Sesi", "speech": "Çita yeryüzünün en hızlı koşan kara hayvanıdır! Birkaç saniyede araba hızına ulaşabilir." },
+        { "name": "Yunus", "sound": "Yunus Tıklama ve Islık Sesi", "speech": "Yunuslar denizlerin en sevimli dostlarıdır. Suda neşeyle zıplar ve ıslık sesleriyle haberleşirler." },
+        { "name": "Bozayı", "sound": "Ayı Kükremesi", "speech": "Bozayılar güçlü pençeleriyle nehirlerde balık tutmayı ve böğürtlen yemeyi çok severler." },
+        { "name": "Kurt", "sound": "Kurt Uluması", "speech": "Kurtlar vahşi ormanlarda kalabalık aile sürüleri halinde yaşarlar. Geceleri dolunaya bakarak ulurlar." },
+        { "name": "Tilki", "sound": "Tilki Sesi", "speech": "Tilkiler kızıl kürkleri ve sevimli tüylü kuyruklarıyla tanınan hızlı ve kurnaz avcılardır." },
+        { "name": "Kartal", "sound": "Kartal Çığlığı", "speech": "Kartallar keskin gözleriyle gökyüzünün en yükseklerinden yeryüzünü izleyen asil yırtıcı kuşlardır." },
+        { "name": "Baykuş", "sound": "Baykuş Sesi", "speech": "Baykuşlar geceleri avlanan ve başlarını neredeyse tam tur döndürebilen bilge kuşlardır." },
+        { "name": "Mavi Balina", "sound": "Balina Şarkısı", "speech": "Mavi balina gezegenimizde şimdiye kadar yaşamış en büyük canlıdır!" },
+        { "name": "Bal Arısı", "sound": "Arı Vızıltısı", "speech": "Bal arıları binlerce çiçeği ziyaret ederek bizler için tatlı ve şifalı bal üretirler." }
+      ]
+    },
+    {
+      "id": "nature_and_universe",
+      "name": "Doğa ve Evren Unsurları",
+      "items": [
+        { "title": "Yüce Dağlar", "speech": "Dağlar yeryüzünün göğe uzanan görkemli devleridir. Zirveleri genellikle kar ve buzullarla kaplıdır." },
+        { "title": "Yeşil Orman", "speech": "Ormanlar binlerce canlının yuvasıdır ve dünyamızın oksijen üreten yeşil akciğerleridir." },
+        { "title": "Akan Nehir", "speech": "Nehirler dağlardan başlayıp göllere ve denizlere doğru durmaksızın akan tatlı su yollarıdır." },
+        { "title": "Coşkulu Şelale", "speech": "Şelale suyun sarp kayalıklardan köpükler saçarak gümbürtüyle aşağı döküldüğü büyüleyici bir doğa harikasıdır." },
+        { "title": "Bereketli Yağmur", "speech": "Yağmur bulutlarda toplanan su damlacıklarının toprağa düşerek bitkilere hayat vermesidir." },
+        { "title": "Altın Güneş", "speech": "Güneş, Güneş Sistemimizin kalbinde yer alan devasa ve parlak bir yıldızdır. Dünyamızı ısıtır ve aydınlatır." },
+        { "title": "Işıltılı Ay", "speech": "Ay, geceleri gökyüzümüzü aydınlatan Dünyamızın tek doğal uydusudur. Güneşten aldığı ışığı yansıtır." },
+        { "title": "Parıldayan Yıldızlar", "speech": "Gece gökyüzünde parıldayan yıldızlar, aslında trilyonlarca kilometre uzakta parlayan güneşlerdir." },
+        { "title": "Rengarenk Gökkuşağı", "speech": "Yağmurdan hemen sonra güneş ışınlarının su damlacıklarından kırılarak yedi güzel renge ayrılmasıdır." }
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "Geometrik Şekiller Dünyası",
+      "items": [
+        { "name": "Kare", "speech": "Karenin dört eşit kenarı ve dört dik köşesi vardır. Her kenarı birbirine eşittir!" },
+        { "name": "Üçgen", "speech": "Üçgenin yalnızca üç kenarı ve üç köşesi vardır." },
+        { "name": "Daire", "speech": "Dairenin hiç köşesi ve düz kenarı yoktur, tamamen yuvarlak ve pürüzsüzdür." },
+        { "name": "Dikdörtgen", "speech": "Dikdörtgenin karşılıklı kenarları birbirine eşittir ve dört dik köşesi vardır." },
+        { "name": "Küp", "speech": "Küp, altı eşit kare yüzden oluşan üç boyutlu katı şekildir." },
+        { "name": "Küre", "speech": "Küre, her yönden kusursuz derecede yuvarlak olan top biçimli üç boyutlu şekildir." },
+        { "name": "Silindir", "speech": "İki yuvarlak tabanı ve pürüzsüz boru şeklinde eğri gövdesi olan şekildir." },
+        { "name": "Koni", "speech": "Daire şeklinde bir tabanı ve tepesinde sivri bir ucu olan şekildir." }
+      ]
+    },
+    {
+      "id": "foods_and_sensations",
+      "name": "Yiyecekler ve Tat Duyuları",
+      "items": [
+        { "category": "Tatlı", "speech": "Çok tatlı ve suludur! Isırınca çıtır çıtır ses çıkarır ve enerji verir!" },
+        { "category": "Acı ve Baharatlı", "speech": "Vay! Dilim yandı, lütfen çabuk bana bir bardak su veya süt verin!" },
+        { "category": "Ekşi", "speech": "Uff! Çok ekşi! Gözlerim kırpıştı ama içi bolca C vitamini doludur!" },
+        { "category": "Sıcak ve Kaynar", "speech": "Üfleyerek iç, çok sıcak olabilir! İçimizi ısıtır." },
+        { "category": "Soğuk ve Buzlu", "speech": "Hem tatlı hem buz gibi soğuktur! Yazın en sevilen neşesidir!" }
+      ]
+    },
+    {
+      "id": "alphabet_and_numbers",
+      "name": "Alfabe ve Sayılar",
+      "alphabet": [
+        { "letter": "A", "word": "Arı", "sentence": "Çiçeklerden bal toplayan çalışkan arı." },
+        { "letter": "B", "word": "Balık", "sentence": "Denizde yüzen sevimli balık." },
+        { "letter": "C", "word": "Ceviz", "sentence": "Sert kabuklu lezzetli ceviz." },
+        { "letter": "Ç", "word": "Çilek", "sentence": "Kırmızı ve tatlı çilek." },
+        { "letter": "D", "word": "Deve", "sentence": "Çöl kumlarında yürüyen deve." },
+        { "letter": "E", "word": "Elma", "sentence": "Ağaçta olgunlaşan kırmızı elma." },
+        { "letter": "F", "word": "Fil", "sentence": "Kocaman kulaklı sevimli fil." },
+        { "letter": "G", "word": "Gemi", "sentence": "Mavi denizlerde yüzen büyük gemi." },
+        { "letter": "Ğ", "word": "Yağmur", "sentence": "Yüce dağların ardından gelen bereketli yağmur." },
+        { "letter": "H", "word": "Havuç", "sentence": "Tavşanların çok sevdiği turuncu havuç." },
+        { "letter": "I", "word": "Ispanak", "sentence": "Güç veren yeşil yapraklı ıspanak." },
+        { "letter": "İ", "word": "İnek", "sentence": "Bize taze ve sağlıklı süt veren inek." },
+        { "letter": "J", "word": "Jeton", "sentence": "Eğlenceli oyun salonu jetonu." },
+        { "letter": "K", "word": "Kedi", "sentence": "Evimizde neşeyle mırlayan tatlı kedi." },
+        { "letter": "L", "word": "Limon", "sentence": "Ekşi ve sulu sarı limon." },
+        { "letter": "M", "word": "Maymun", "sentence": "Ağaç dallarında sallanan maymun." },
+        { "letter": "N", "word": "Nar", "sentence": "Taneleri mücevher gibi parlayan nar." },
+        { "letter": "O", "word": "Orman", "sentence": "Yemyeşil ağaçlarla dolu orman." },
+        { "letter": "Ö", "word": "Ördek", "sentence": "Gölde yüzen sevimli ördek." },
+        { "letter": "P", "word": "Papağan", "sentence": "Rengarenk tüylü konuşan papağan." },
+        { "letter": "R", "word": "Roket", "sentence": "Uzaya fırlatılan güçlü roket." },
+        { "letter": "S", "word": "Sincap", "sentence": "Meşe palamudu saklayan sevimli sincap." },
+        { "letter": "Ş", "word": "Şemsiye", "sentence": "Yağmurdan koruyan renkli şemsiye." },
+        { "letter": "T", "word": "Tavşan", "sentence": "Hızlıca zıplayan beyaz tavşan." },
+        { "letter": "U", "word": "Uçak", "sentence": "Gökyüzünde süzülen gümüş uçak." },
+        { "letter": "Ü", "word": "Üzüm", "sentence": "Asmalardan sarkan tatlı üzüm salkımı." },
+        { "letter": "V", "word": "Vagon", "sentence": "Tren raylarında giden uzun vagon." },
+        { "letter": "Y", "word": "Yıldız", "sentence": "Gece gökyüzünü süsleyen parlak yıldız." },
+        { "letter": "Z", "word": "Zürafa", "sentence": "Ağaçların en tepesine uzanan zürafa." }
+      ],
+      "numbers": [
+        "Bir", "İki", "Üç", "Dört", "Beş", "Altı", "Yedi", "Sekiz", "Dokuz", "On",
+        "Yirmi", "Otuz", "Kırk", "Elli", "Altmış", "Yetmiş", "Seksen", "Doksan", "Yüz"
+      ]
+    },
+    {
+      "id": "badges",
+      "name": "Dijital Başarı Rozetleri",
+      "items": [
+        { "title": "İlk Keşif", "description": "İlk bilgi yarışmasını başarıyla tamamladın!" },
+        { "title": "Hızlı Çita", "description": "Üst üste 3 veya daha fazla soruya doğru cevap vererek seri yakaladın!" },
+        { "title": "Keskin Nişancı Kaşif", "description": "Yarışmada yüzde 80 ve üzeri doğruluk elde ettin!" },
+        { "title": "Doğa Dahisi", "description": "10 sorunun tamamını kusursuz şekilde doğru yanıtladın!" },
+        { "title": "Yaban Hayatı Koruyucusu", "description": "Hayvanlar alemi yarışmasını başarıyla tamamladın!" },
+        { "title": "Doğa Muhafızı", "description": "Doğa harikaları ve unsurları hakkındaki soruları yanıtladın!" },
+        { "title": "Kozmik Gezgin", "description": "Evren, gezegenler ve yıldızlarla ilgili testleri geçtin!" },
+        { "title": "Geometri Ustası", "description": "2D ve 3D geometrik şekilleri tanıdın ve sırlarını öğrendin!" },
+        { "title": "Tat Dedektifi", "description": "Yiyecekler, tatlar ve duyular dünyasını keşfettin!" },
+        { "title": "Harfler ve Sayılar Kahramanı", "description": "Alfabe ve sayma yarışmasını başarıyla fethettin!" },
+        { "title": "Büyük Kaşif", "description": "3 veya daha fazla farklı kategoride testleri tamamladın!" },
+        { "title": "Usta Natüralist", "description": "5 tam bilgi yarışmasını tamamlayarak büyük bilgi edindin!" }
+      ]
+    }
+  ]
+}

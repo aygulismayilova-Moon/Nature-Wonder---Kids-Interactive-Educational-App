@@ -1,0 +1,182 @@
+{
+  "title": "Təbiət və Möcüzələr - Azərbaycan Nitq Sintezi Lüğəti",
+  "language": "az-AZ",
+  "version": "1.0",
+  "description": "Text-to-Speech (TTS), AI audio modelləri və diktor səsyazmaları üçün proqramın tam söz və cümlələr bazası",
+  "categories": [
+    {
+      "id": "system_ui",
+      "name": "Əsas Sistem və Menyu İfadələri",
+      "items": [
+        "Təbiət və Möcüzələr",
+        "Uşaq Kəşfiyyatçısı",
+        "1. Ətrafımızdakı Dünya",
+        "2. Həndəsi Fiqurlar",
+        "3. Qidalar və Hisslər",
+        "4. Pazl Oyunu",
+        "5. Saylar və Əlifba",
+        "6. Ümumi Viktorina",
+        "1.1 Heyvanlar (1,000 Kataloq)",
+        "1.2 Təbiət Ünsürləri",
+        "1.3 Kainat Ünsürləri",
+        "2.1 Müstəvi Fiqurlar",
+        "2.2 Fəza Fiqurları",
+        "Həndəsə Detektivi Oyunu",
+        "Dad və Temperatur Kəşfiyyatı",
+        "Hissləri Qruplaşdırma Oyunu",
+        "5.1 Əlifba (A-Z)",
+        "5.2 Saylar və Sayma (1-100)",
+        "5.3 Hərf və Say Oyunu",
+        "Kəşfiyyatçı Gündəliyi",
+        "Profil və Rəqəmsal Nişanlar",
+        "Səsi Dinlə",
+        "Tələffüz Et",
+        "Videoya Bax",
+        "Səs Söndürülüb",
+        "Səs və Nitq Aktivdir",
+        "Maraqlı və Ağıllı Uşaqlar üçün Hazırlanıb"
+      ]
+    },
+    {
+      "id": "greetings_and_reactions",
+      "name": "Qarşılama və Sevincli Təbrik Cümlələri",
+      "items": [
+        "Salam dostum! Mən səninlə təmiz və aydın Azərbaycan dilində danışıram.",
+        "Təbiət və Möcüzələrə xoş gəldiniz! Gəlin birlikdə heyrətamiz dünyamızı kəşf edək!",
+        "Afərin! Bütün suallara cavab verdin!",
+        "Möhtəşəm Qələbə! Sən bütün sualları düzgün cavablandırdın!",
+        "Əla Zəhmət! Təcrübə etməyə davam et!",
+        "Düzgün cavab! Sən möhtəşəmsən!",
+        "Afərin! Düzgün tapdın!",
+        "Yaxın idi! Yenidən cəhd et, sən bacararsan!",
+        "Təbriklər! Yeni nailiyyət nişanı qazandın!",
+        "Ura! Bütün qidaları düzgün qruplaşdırdın!",
+        "Əla! Pazl uğurla tamamlandı!",
+        "Günün yeni möcüzəsini öyrəndin!",
+        "Zəhmət olmasa, əvvəlcə adınızı yazın!",
+        "Adını yaz və kəşfiyyata başla!",
+        "Mükəmməl nəticə! Sən əsl Həndəsə Detektivisən!"
+      ]
+    },
+    {
+      "id": "animals",
+      "name": "Heyvanlar Aləmi",
+      "items": [
+        { "name": "Aslan", "sound": "Qüdrətli Aslan Nərəsi", "speech": "Aslanlar savannanın kralı kimi tanınır! Onlar prayd adlanan isti ailə dəstələrində birlikdə yaşayırlar." },
+        { "name": "Afrika Fili", "sound": "Fil Borusu Səsi", "speech": "Fillər Yer üzündə yaşayan ən böyük quru heyvanlarıdır. Onların uzun xortumları sarılmaq, su içmək və meyvə dərmək üçün möcüzəli bir əl kimidir!" },
+        { "name": "Meymun", "sound": "Şən Meymun Səsi", "speech": "Şimpanzelər ağac budaqlarında yellənməyi çox sevirlər. Onlar çox ağıllıdırlar və insanlara ən yaxın canlılardandır." },
+        { "name": "Pələng", "sound": "Pələng Nərəsi", "speech": "Pələnglər dünyanın ən böyük vəhşi pişikləridir. Onların zolaqları meşədə gizlənməyə kömək edir." },
+        { "name": "Zürafə", "sound": "Zürafə Səsi", "speech": "Zürafələr dünyanın ən hündür heyvanlarıdır. Onların uzun boyunları uca ağacların ən təzə yarpaqlarına çatmağa imkan verir." },
+        { "name": "Çita", "sound": "Çita Səsi", "speech": "Çita Yer üzündə ən sürətli qaçan quru heyvanıdır! O, bir neçə saniyə ərzində avtomobil sürətinə çata bilir." },
+        { "name": "Delfin", "sound": "Delfin Klik və Fit Səsi", "speech": "Delfinlər dənizlərin ən mehriban və şən sakinləridir. Onlar suda tullanır və bir-biri ilə fit səsləri vasitəsilə danışırlar." },
+        { "name": "Qonur Ayı", "sound": "Ayı Nərəsi", "speech": "Qonur ayılar güclü pəncələri ilə balıq ovlamağı və meşədə şirin giləmeyvələr yeməyi çox sevirlər." },
+        { "name": "Canavar", "sound": "Qurd Ulaması", "speech": "Canavarlar sıx meşələrdə və dağlarda ailə sürüləri halında yaşayırlar. Gecələr ulduzlu səmaya baxaraq ulayırlar." },
+        { "name": "Tülkü", "sound": "Tülkü Ciyiltisi", "speech": "Tülkülər qırmızı xəzləri və gözəl tüklü quyruqları ilə tanınan cəld və ağıllı ovçulardır." },
+        { "name": "Qartal", "sound": "Qartal Çığırtısı", "speech": "Qartallar iti gözləri ilə uca göylərdən yer üzünü seyr edən əzəmətli quşlardır." },
+        { "name": "Bayquş", "sound": "Bayquş Ulaması", "speech": "Bayquşlar gecələr ov edən və başlarını demək olar ki, tam çevirə bilən müdrik quşlardır." },
+        { "name": "Mavi Balina", "sound": "Balina Nəğməsi", "speech": "Mavi balina planetimizdə indiyə qədər yaşamış ən nəhəng canlıdır!" },
+        { "name": "Bal Arısı", "sound": "Arı Vızıltısı", "speech": "Bal arıları minlərlə çiçəyi gəzərək bizə şirin və faydalı bal bəxş edirlər." }
+      ]
+    },
+    {
+      "id": "nature_and_universe",
+      "name": "Təbiət və Kainat Ünsürləri",
+      "items": [
+        { "title": "Uca Dağlar", "speech": "Dağlar Yer kürəsinin uca və əzəmətli nəhəngləridir. Onların zirvələri çox vaxt bəyaz qarla örtülü olur." },
+        { "title": "Yaşıl Meşə", "speech": "Meşələr minlərlə canlının evidir və planetimizə təmiz nəfəs verən yaşıl ağciyərlərdir." },
+        { "title": "Axar Çay", "speech": "Çaylar dağlardan başlayaraq dənizlərə doğru axan canlı şirin su yollarıdır." },
+        { "title": "Gur Şəlalə", "speech": "Şəlalə suyun uca qayalıqlardan gurultu və köpüklə aşağı töküldüyü möhtəşəm təbiət mənzərəsidir." },
+        { "title": "Bərəkətli Yağış", "speech": "Yağış buludlarda toplanan təmiz su damcılarının yerə enərək təbiəti canlandırmasıdır." },
+        { "title": "Qızılı Günəş", "speech": "Günəş bizim Günəş sistemimizin mərkəzində yerləşən nəhəng və parlaq ulduzdur. O, yer üzünü isidir və həyat verir." },
+        { "title": "İşıqlı Ay", "speech": "Ay gecələr göy üzünü bəzəyən Yer kürəsinin yeganə təbii peykidir. O, günəşin işığını bizə əks etdirir." },
+        { "title": "Sayrışan Ulduzlar", "speech": "Gecə səmasında gördüyümüz ulduzlar əslində milyardlarla kilometr uzaqda yerləşən parlaq günəşlərdir." },
+        { "title": "Rəngarəng Göyqurşağı", "speech": "Yağışdan dərhal sonra günəş şüaları havadakı su damcılarından keçərkən yeddi gözəl rəngə ayrılır." }
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "Həndəsi Fiqurlar Dünyası",
+      "items": [
+        { "name": "Kvadrat", "speech": "Kvadratın dörd bərabər tərəfi və dörd düz küncü var. Hər bir tərəfi bir-birinə tam bərabərdir!" },
+        { "name": "Üçbucaq", "speech": "Üçbucağın cəmi üç tərəfi və üç küncü var." },
+        { "name": "Dairə", "speech": "Dairə heç bir küncü və düz tərəfi olmayan tamamilə yumru bir fiqurdur." },
+        { "name": "Düzbucaqlı", "speech": "Düzbucaqlının qarşı-qarşıya olan tərəfləri bərabərdir və dörd düz küncü var." },
+        { "name": "Kub", "speech": "Kub altı bərabər kvadrat üzdən ibarət 3D fəza fiqurudur." },
+        { "name": "Kürə", "speech": "Kürə hər tərəfdən mükəmməl yuvarlaq olan top şəkilli 3D formadır." },
+        { "name": "Silindr", "speech": "İki dairəvi altlığı və bir hamar boru səthi olan fəza fiqurudur." },
+        { "name": "Konus", "speech": "Dairəvi oturacağı və yuxarıda sivri bir təpəsi olan formadır." }
+      ]
+    },
+    {
+      "id": "foods_and_sensations",
+      "name": "Qidalar və Dad Hissləri",
+      "items": [
+        { "category": "Şirin", "speech": "Çox dadlı və şirindir! Xırçıldayır və mənə enerji verir!" },
+        { "category": "Acı və Yandırıcı", "speech": "Vay! Dilim yandı, mənə tez bir stəkan su və ya süd verin!" },
+        { "category": "Turş", "speech": "Uff! Çox turşdur! Gözlərim qırpıldı, amma içində çoxlu C vitamini var!" },
+        { "category": "Qaynar və İsti", "speech": "Püfləyərək iç, çox qaynar ola bilər! Bədəni qızdırır." },
+        { "category": "Soyuq və Buzlu", "speech": "Həm şirin, həm də buz kimi soyuqdur! Yayın ən dadlı sevincidir!" }
+      ]
+    },
+    {
+      "id": "alphabet_and_numbers",
+      "name": "Əlifba və Saylar",
+      "alphabet": [
+        { "letter": "A", "word": "Alma", "sentence": "Qırmızı şirin alma bağda yetişir." },
+        { "letter": "B", "word": "Balıq", "sentence": "Balıqlar təmiz sularda üzürlər." },
+        { "letter": "C", "word": "Ceyran", "sentence": "Ceyran çöldə cəld qaçır." },
+        { "letter": "Ç", "word": "Çiyələk", "sentence": "Qırmızı çiyələk çox dadlıdır." },
+        { "letter": "D", "word": "Dələ", "sentence": "Dələ ağacda qoz yeyir." },
+        { "letter": "E", "word": "Ev", "sentence": "İsti və rahat evimiz." },
+        { "letter": "Ə", "word": "Əncir", "sentence": "Şirin əncir yayda yetişir." },
+        { "letter": "F", "word": "Fil", "sentence": "Fil uzun xortumu ilə su içir." },
+        { "letter": "G", "word": "Günəş", "sentence": "Qızılı Günəş dünyanı isidir." },
+        { "letter": "Ğ", "word": "Yağış", "sentence": "Bərəkətli yağış torpağa yağır." },
+        { "letter": "H", "word": "Hörümçək", "sentence": "Hörümçək gözəl tor toxuyur." },
+        { "letter": "X", "word": "Xoruz", "sentence": "Səhər xoruz banlayır." },
+        { "letter": "I", "word": "İldırım", "sentence": "Göy üzündə parlaq ildırım çaxır." },
+        { "letter": "İ", "word": "İnək", "sentence": "İnək bizə faydalı ağ süd verir." },
+        { "letter": "J", "word": "Jilet", "sentence": "İsti toxunma jilet." },
+        { "letter": "K", "word": "Kəpənək", "sentence": "Rəngarəng kəpənək güllərə qonur." },
+        { "letter": "Q", "word": "Qartal", "sentence": "Qartal uca qayalıqlarda yuva qurur." },
+        { "letter": "L", "word": "Limon", "sentence": "Sarı limon turş və faydalıdır." },
+        { "letter": "M", "word": "Meymun", "sentence": "Meymun budaqdan budağa tullanır." },
+        { "letter": "N", "word": "Nar", "sentence": "Dənələri yaqut kimi parıldayan nar." },
+        { "letter": "O", "word": "Odun", "sentence": "Ocaqda yanan odun." },
+        { "letter": "Ö", "word": "Ördək", "sentence": "Yaşılbaş ördək göldə üzür." },
+        { "letter": "P", "word": "Pələng", "sentence": "Pələng zolaqlı və güclü ovçudur." },
+        { "letter": "R", "word": "Rəngarəng", "sentence": "Təbiət min bir rənglə gözəldir." },
+        { "letter": "S", "word": "Sərçə", "sentence": "Kiçik sərçə cikkildəyir." },
+        { "letter": "Ş", "word": "Şəlalə", "sentence": "Şəlalə qayadan şırıldayır." },
+        { "letter": "T", "word": "Tısbağa", "sentence": "Tısbağa evini arxasında daşıyır." },
+        { "letter": "U", "word": "Ulduz", "sentence": "Ulduzlar gecə səmasında parlayır." },
+        { "letter": "Ü", "word": "Üzüm", "sentence": "Şirəli üzüm salxımı." },
+        { "letter": "V", "word": "Vulkan", "sentence": "Uca dağdan lava püskürən vulkan." },
+        { "letter": "Y", "word": "Yarpaq", "sentence": "Payızda saralan gözəl yarpaq." },
+        { "letter": "Z", "word": "Zürafə", "sentence": "Ən hündür boyunlu zürafə." }
+      ],
+      "numbers": [
+        "Bir", "İki", "Üç", "Dörd", "Beş", "Altı", "Yeddi", "Səkkiz", "Doqquz", "On",
+        "İyirmi", "Otuz", "Qırx", "Əlli", "Altmış", "Yetmiş", "Səksən", "Doxsan", "Yüz"
+      ]
+    },
+    {
+      "id": "badges",
+      "name": "Rəqəmsal Nailiyyət Nişanları",
+      "items": [
+        { "title": "İlk Kəşf", "description": "İlk viktorinanı uğurla tamamladın!" },
+        { "title": "Sürətli Çita", "description": "Ardıcıl 3 və daha çox suala düzgün cavab verərək seriya qazandın!" },
+        { "title": "Snayper Kəşfiyyatçı", "description": "Viktorinada 80 faiz və daha yüksək dəqiqlik göstərdin!" },
+        { "title": "Təbiət Dahisi", "description": "Bütün 10 sualın hamısına qüsursuz düzgün cavab verdin!" },
+        { "title": "Canlılar Mühafizəçisi", "description": "Heyvanlar aləmi üzrə viktorinanı tamamladın və canlıları tanıdın!" },
+        { "title": "Təbiət Gözətçisi", "description": "Təbiət möcüzələri və ünsürləri haqqında sualları cavablandırdın!" },
+        { "title": "Kosmik Səyyah", "description": "Kainat, ulduzlar və planetlərlə bağlı sınaqdan uğurla keçdin!" },
+        { "title": "Həndəsə Ustası", "description": "Müstəvi və fəza fiqurlarını dəqiq tanıdın və sirlərini bildin!" },
+        { "title": "Dad Detektivi", "description": "Qidalar, dadlar və temperatur hisslərini kəşf etdin!" },
+        { "title": "Saylar və Hərflər Qəhrəmanı", "description": "Əlifba və say viktorinasını fəth etdin!" },
+        { "title": "Böyük Kəşfiyyatçı", "description": "3 və daha çox fərqli kateqoriyada sınaqdan keçdin!" },
+        { "title": "Təcrübəli Naturalist", "description": "5 tam viktorina seansını başa vurdun və böyük bilik qazandın!" }
+      ]
+    }
+  ]
+}

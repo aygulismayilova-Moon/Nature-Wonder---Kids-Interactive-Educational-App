@@ -1,0 +1,429 @@
+================================================================================
+DOĞA VE MUCİZELER - ÇOCUK KAŞİFİ
+TÜRKÇE KONUŞMA SENTEZİ VE SESLENDİRME İÇİN TAM SÖZLÜK VE CÜMLELER
+================================================================================
+Tarih: 2026
+Format: UTF-8 Metin Belgesi (Text Document)
+Kullanım Amacı: Text-to-Speech (TTS), Yapay Zeka Ses Modelleri ve Seslendirme Stüdyoları
+
+--------------------------------------------------------------------------------
+1. TEMEL SİSTEM, MENÜLER VE NAVİGASYON BUTONLARI
+--------------------------------------------------------------------------------
+Doğa ve Mucizeler
+Çocuk Kaşifi
+Hayvanları, Doğayı, Kozmik Harikaları, Geometrik Şekilleri ve Duyuları Keşfet
+1. Çevremizdeki Dünya
+2. Geometrik Şekiller
+3. Yiyecekler ve Duyular
+4. Yapboz Oyunu
+5. Sayılar ve Alfabe
+6. Büyük Bilgi Yarışması
+
+1.1 Hayvanlar (1.000 Katalog)
+1.2 Doğa Unsurları
+1.3 Evren Unsurları
+2.1 Düzlem Şekiller (Üçgen ve Dörtgenler)
+2.2 Katı / 3D Şekiller (Küp, Koni ve 3D)
+Şekil Dedektifi Oyunu
+Tat ve Sıcaklık Kaşifi
+Duyu Sıralama Oyunu
+5.1 Alfabe (A-Z)
+5.2 Sayılar ve Sayma (1-100)
+5.3 Harf ve Sayı Oyunu
+
+Kaşif Günlüğü
+Favorilerim
+Keşiflerim
+Başarılar ve İstatistikler
+Google ile Giriş Yap
+Çıkış Yap
+Yeni Keşif Ekle
+Keşif Başlığı
+Notların ve İzlenimlerin
+Kategori
+Keşfi Kaydet
+Kapat
+Geri
+Sonraki
+Yeniden Başlat
+Filtreleri Temizle
+Arama
+Sesi Dinle
+Seslendir
+Videoyu İzle
+Eğlenceli Bilgi
+Biliyor muydunuz?
+Boyut ve Ağırlık
+Ömür
+Hız
+Beslenme
+Yaşam Alanı
+Farklı Açılar
+Tüm Açılar
+Önden Görünüş
+Yandan Görünüş
+Arkadan Görünüş
+Detaylı Bilgi
+Ses Kapalı
+Ses ve Konuşma Açık
+Meraklı Küçük Zihinler İçin Tasarlandı
+Sevgiyle hazırlandı
+
+--------------------------------------------------------------------------------
+2. KARŞILAMA, TEBRİK VE ETKİLEŞİMLİ SES TEPKİLERİ (TTS KONUŞMALARI)
+--------------------------------------------------------------------------------
+Merhaba arkadaşım! Seninle tertemiz ve doğal bir Türkçe ile konuşuyorum.
+Doğa ve Mucizelere hoş geldiniz! Harika dünyamızı birlikte keşfedelim!
+Aferin! Bütün sorulara doğru cevap verdin!
+Muhteşem Zafer! Bütün soruları eksiksiz bildin!
+Harika Çaba! Öğrenmeye ve keşfetmeye devam et!
+Doğru cevap! Sen harikasın!
+Aferin! Doğru bildin!
+Çok yakındı! Tekrar dene, başarabilirsin!
+Tebrikler! Yeni bir başarı rozeti kazandın!
+Yaşasın! Bütün yiyecekleri doğru kaselere yerleştirdin!
+Harika! Yapboz başarıyla tamamlandı!
+Günün yeni doğa mucizesini öğrendin!
+Lütfen önce isminizi yazın!
+İsmini yaz ve büyük maceraya başla!
+Kusursuz puan! Gerçek bir Şekil Dedektifisin!
+Harika çaba! Denemeye devam et!
+Bir kez daha dene, sen yapabilirsin!
+Her gün yeni bir canlı veya doğa sırrını keşfedin!
+
+--------------------------------------------------------------------------------
+3. HAYVANLAR ALEMİ (İSİMLER, AÇIKLAMALAR VE SES ETİKETLERİ)
+--------------------------------------------------------------------------------
+Aslan: Aslanlar savananın kralları olarak bilinir! Sürü halinde sıcak aile gruplarında yaşarlar.
+Bir aslanın kükremesi o kadar güçlüdür ki, 8 kilometre uzaktan bile duyulabilir!
+Görkemli Aslan Kükremesi
+
+Afrika Fili: Filler yeryüzünde yaşayan en büyük kara hayvanlarıdır. Uzun hortumları su içmek, sarılmak ve yaprak toplamak için harika bir el gibidir!
+Fil Borusu Sesi
+
+Maymun ve Şempanze: Şempanzeler ağaç dallarında sallanmayı çok severler. Çok zekidirler ve insanlara en yakın canlılardandır.
+Neşeli Maymun Sesi
+
+Kaplan: Kaplanlar dünyanın en büyük vahşi kedileridir. Çizgili kürkleri ormanda ve uzun otlar arasında kusursuzca kamufle olmalarını sağlar.
+Kaplan Kükremesi
+
+Zürafa: Zürafalar dünyanın en uzun boylu hayvanlarıdır. Uzun boyunları sayesinde en yüksek ağaçların taze yapraklarına kolayca ulaşırlar.
+Zürafa Sesi
+
+Çita: Çita yeryüzünün en hızlı koşan kara hayvanıdır! Yalnızca birkaç saniye içinde bir otomobil hızına ulaşabilir.
+Çita Sesi
+
+Leopar: Leoparlar son derece çevik ve güçlüdür. Ağaçlara büyük bir ustalıkla tırmanır ve dinlenirler.
+
+Yunus: Yunuslar denizlerin en sevimli ve cana yakın dostlarıdır. Suda neşeyle zıplar ve ıslık sesleriyle haberleşirler.
+Yunus Tıklama ve Islık Sesi
+
+Bozayı: Bozayılar güçlü pençeleriyle nehirlerde balık tutmayı ve ormanda tatlı böğürtlenler yemeyi çok severler.
+Ayı Kükremesi
+
+Kutup Ayısı: Kutup ayıları Kuzey Kutbu'nun karlı ve buzlu sahillerinde yaşarlar. Kalın beyaz kürkleri onları dondurucu soğuktan korur.
+
+Kurt: Kurtlar vahşi ormanlarda kalabalık aile sürüleri halinde yaşarlar. Geceleri dolunaya bakarak ulurlar.
+Kurt Uluması
+
+Tilki: Tilkiler kızıl kürkleri ve sevimli tüylü kuyruklarıyla tanınan hızlı ve kurnaz avcılardır.
+Tilki Sesi
+
+Tavşan: Tavşanlar uzun kulakları ve güçlü arka bacaklarıyla yükseğe sıçrayabilirler. Havuç ve taze ot yemeyi çok severler.
+
+Sincap: Sincaplar ağaç kovuklarında yaşarlar ve kış ayları için meşe palamudu ile ceviz toplarlar.
+
+Zebra: Zebraların siyah-beyaz çizgileri parmak izi gibidir; dünyadaki hiçbir zebranın çizgileri birbirinin aynısı değildir!
+
+Penguen: Penguenler gökyüzünde uçamayan ancak suda adeta bir balık gibi hızlı yüzen sevimli deniz kuşlarıdır.
+
+Koala: Koalalar Avustralya'nın okaliptüs ağaçlarında yaşar ve günün büyük kısmını tatlı tatlı uyuyarak geçirirler.
+
+Kanguru: Kangurular dev adımlarla zıplar ve sevimli yavrularını karınlarındaki özel kesede taşırlar.
+
+Kartal: Kartallar keskin gözleriyle gökyüzünün en yükseklerinden yeryüzünü izleyen asil yırtıcı kuşlardır.
+Kartal Çığlığı
+
+Flamingo: Flamingolar pembe tüyleri ve uzun narin bacaklarıyla sığ sularda zarafetle yürürler.
+
+Baykuş: Baykuşlar geceleri avlanan ve başlarını neredeyse tam tur döndürebilen bilge kuşlardır.
+Baykuş Sesi
+
+Deniz Kaplumbağası: Deniz kaplumbağaları okyanuslarda binlerce kilometre yol kat eden kadim deniz canlılarıdır.
+
+Mavi Balina: Mavi balina gezegenimizde şimdiye kadar yaşamış en büyük canlıdır!
+
+Mors: Morslar kutup denizlerinde yaşarlar ve uzun beyaz fildişleriyle buzu delip suyun altında beslenirler.
+
+Deve: Develer kızgın çöl kumlarında günlerce susuzluğa dayanabilen çöl gemileridir.
+
+Kızıl Panda: Kızıl pandalar çizgili tüylü kuyrukları ve sevimli yüzleriyle bambu yaprakları yemeyi çok severler.
+
+Bal Arısı: Bal arıları binlerce çiçeği ziyaret ederek bizler için tatlı ve şifalı bal üretirler.
+Arı Vızıltısı
+
+Kelebek: Kelebekler minik bir tırtıldan rengarenk kanatlı büyüleyici bir canlıya dönüşürler.
+
+Kurbağa: Kurbağalar hem karada hem suda yaşayan ve uzun dilleriyle böcek yakalayan neşeli amfibilerdir.
+Kurbağa Vıraklaması
+
+Yaşam Alanları ve Gruplar:
+Savana ve Çayırlık
+Yağmur Ormanları
+Okyanuslar ve Denizler
+Kutup Buzulları
+Sıcak Kum Çölleri
+Yüksek Kayalık Dağlar
+Göl ve Nehir Kenarları
+Memeliler, Kuşlar, Sürüngenler, Amfibiler, Balıklar, Böcekler
+Otobur, Etobur (Yırtıcı), Hepçil
+
+--------------------------------------------------------------------------------
+4. DOĞA UNSURLARI
+--------------------------------------------------------------------------------
+Yüce Dağlar: Dağlar yeryüzünün göğe uzanan görkemli devleridir. Zirveleri genellikle kar ve buzullarla kaplıdır.
+Dağ Rüzgarının Uğultusu
+Dağlar neden önemlidir? Dağlardaki karlar eriyerek nehirleri ve temiz içme suyu kaynaklarını besler.
+
+Yeşil Orman: Ormanlar binlerce canlının yuvasıdır ve dünyamızın oksijen üreten yeşil akciğerleridir.
+Orman Hışırtısı ve Kuş Cıvıltıları
+Ormanlar neden önemlidir? Ağaçlar karbondioksiti temizleyip bize taze ve tertemiz oksijen sağlar.
+
+Akan Nehir: Nehirler dağlardan başlayıp göllere ve denizlere doğru durmaksızın akan tatlı su yollarıdır.
+Şırıldayan Nehir Sesi
+
+Coşkulu Şelale: Şelale suyun sarp kayalıklardan köpükler saçarak gümbürtüyle aşağı döküldüğü büyüleyici bir doğa harikasıdır.
+Gürleyen Şelale Sesi
+
+Bereketli Yağmur: Yağmur bulutlarda toplanan su damlacıklarının toprağa düşerek bitkilere ve ağaçlara hayat vermesidir.
+Huzur Veren Yağmur Damlaları Sesi
+Yağmur neden önemlidir? Bütün tohumlar, çiçekler ve ağaçlar büyümek için yağmur suyuna muhtaçtır.
+
+Şimşek ve Gök Gürültüsü: Bulutlar arasında oluşan güçlü elektrik kıvılcımı ve ardından gelen derin gök gürültüsüdür.
+Gök Gürültüsü Sesi
+
+Deniz ve Okyanus Dalgaları: Rüzgarın su yüzeyinde dans ederek oluşturduğu ritmik dalga sesidir.
+Dalga Sesleri
+
+Kum Çölü: Güneşin altında altın gibi parıldayan dev kum tepeleri ve çöl fırtınalarıdır.
+Çöl Rüzgarı Sesi
+
+--------------------------------------------------------------------------------
+5. EVREN VE UZAY HARİKALARI
+--------------------------------------------------------------------------------
+Altın Güneş: Güneş, Güneş Sistemimizin kalbinde yer alan devasa ve parlak bir yıldızdır. Dünyamızı ısıtır ve aydınlatır.
+Güneşin Sıcaklığı
+
+Işıltılı Ay: Ay, geceleri gökyüzümüzü aydınlatan Dünyamızın tek doğal uydusudur. Güneşten aldığı ışığı yansıtır.
+Gece Sessizliğinin Kozmik Tınısı
+
+Parıldayan Yıldızlar: Gece gökyüzünde parıldayan yıldızlar, aslında trilyonlarca kilometre uzakta parlayan güneşlerdir.
+Yıldız Pırıltısı Sesi
+
+Rengarenk Gökkuşağı: Yağmurdan hemen sonra güneş ışınlarının su damlacıklarından kırılarak yedi güzel renge ayrılmasıdır: kırmızı, turuncu, sarı, yeşil, mavi, lacivert ve menekşe!
+
+Kuyrukluyıldız: Uzayın derinliklerinden Güneşe doğru süzülen, arkasında parlak toz ve gaz kuyruğu bırakan buzlu gök cismidir.
+Kuyrukluyıldız Sesi
+
+Kutup Işıkları (Aurora): Kutuplarda gece gökyüzünde yeşil, mor ve pembe dalgalar halinde dans eden büyüleyici ışık gösterisidir.
+
+Gezegenimiz Dünya: Uzaydan bakıldığında masmavi ve yemyeşil parlayan, üzerinde yaşam olan biricik yuvamızdır.
+
+Kızıl Gezegen Mars: Yüzeyi kızıl tozlar ve sönmüş dev yanardağlarla kaplı komşu gezegenimizdir.
+
+Halkalı Satürn: Çevresinde buz ve kayalardan oluşan büyüleyici dev halkalara sahip dev gaz gezegenidir.
+
+--------------------------------------------------------------------------------
+6. GEOMETRİK ŞEKİLLER DÜNYASI (2D VE 3D)
+--------------------------------------------------------------------------------
+Kare: Karenin dört eşit kenarı ve dört dik köşesi vardır. Her kenarı birbirine eşittir!
+Günlük hayattan örnekler: Satranç tahtası, pencere çerçevesi, duvar saati.
+
+Üçgen: Üçgenin yalnızca üç kenarı ve üç köşesi vardır.
+Günlük hayattan örnekler: Pizza dilimi, trafik levhası, yelkenli gemi yelkeni.
+
+Daire: Dairenin hiç köşesi ve düz kenarı yoktur, tamamen yuvarlak ve pürüzsüzdür.
+Günlük hayattan örnekler: Bisiklet tekerleği, Güneş, yemek tabağı.
+
+Dikdörtgen: Dikdörtgenin karşılıklı kenarları birbirine eşittir ve dört dik köşesi vardır.
+Günlük hayattan örnekler: Kapı, kitap kapağı, tablet ekranı.
+
+Eşkenar Dörtgen: Dört kenarı birbirine eşit olan eğik kare biçimli şekildir.
+Günlük hayattan örnekler: Uçurtma, baklava dilimi.
+
+Yamuk: Yalnızca iki kenarı birbirine paralel olan dörtgendir.
+Günlük hayattan örnekler: Asma köprü ayakları, abajur şapkası.
+
+Oval (Elips): Hafifçe uzatılmış, yumurta biçimli yuvarlak formdur.
+Günlük hayattan örnekler: Kuş yumurtası, karpuz dilimi.
+
+Küp: Küp, altı eşit kare yüzden oluşan üç boyutlu katı şekildir.
+Günlük hayattan örnekler: Oyun zarı, hediye kutusu, buz küpü.
+
+Küre: Küre, her yönden kusursuz derecede yuvarlak olan top biçimli üç boyutlu şekildir.
+Günlük hayattan örnekler: Futbol topu, portakal, dünya küresi.
+
+Silindir: İki yuvarlak tabanı ve pürüzsüz boru şeklinde eğri gövdesi olan şekildir.
+Günlük hayattan örnekler: Meyve suyu kutusu, pil, kalemlik.
+
+Koni: Daire şeklinde bir tabanı ve tepesinde sivri bir ucu olan şekildir.
+Günlük hayattan örnekler: Dondurma külahı, trafik konisi, doğum günü şapkası.
+
+Piramit: Tabanı dörtgen, yan yüzleri ise üçgenlerden oluşan sivri tepeye sahip şekildir.
+Günlük hayattan örnekler: Mısır piramitleri, çadır çatısı.
+
+Kenarlar, Köşeler, Yüzler, Ayrıtlar
+Kenarları Say
+Köşeleri Say
+Nerede Görebilirsin
+Şeklin Sırrı
+Bilgini Sına
+
+--------------------------------------------------------------------------------
+7. YİYECEKLER, TATLAR VE DUYULAR
+--------------------------------------------------------------------------------
+Tatlı Duyu
+Acı ve Baharatlı Duyu
+Ekşi Duyu
+Sıcak ve Kaynar Duyu
+Soğuk ve Buzlu Duyu
+
+Munchy'nin Eğlenceli Sözleri:
+Kırmızı Elma: Çok tatlı ve suludur! Isırınca çıtır çıtır ses çıkarır ve enerji verir!
+Doğal Bal: Altın sarısı tatlı bir mucizedir! Arılar çiçeklerden toplayıp üretir!
+Çilek: Mis kokulu ve çok lezzetli bir yaz meyvesidir!
+Muz: Yumuşacık, tatlı ve besleyici tropikal bir meyvedir!
+Acı Kırmızı Biber: Vay! Dilim yandı, lütfen çabuk bana bir bardak su veya süt verin!
+Sarımsak: Keskin kokusu ve tadı vardır ama bizi hastalıklardan korur!
+Limon: Uff! Çok ekşi! Gözlerim kırpıştı ama içi bolca C vitamini doludur!
+Yeşil Elma: Hem ekşi hem tatlı, harika bir ferahlık verir!
+Portakal: Sulu ve leziz tadıyla bağışıklığımızı güçlendirir!
+Yoğurt: Serinletici ve hafif ekşimsi tadıyla çok sağlıklıdır!
+Sıcak Çorba: Üfleyerek iç, çok sıcak olabilir! İçimizi ısıtır.
+Kaynar Süt: İçmeden önce biraz ılımasını bekle, kemikleri güçlendirir.
+Sıcak Çay: Taze demlenmiş mis kokulu sıcak çay.
+Dondurma: Hem tatlı hem buz gibi soğuktur! Yazın en sevilen neşesidir!
+Buz Küpü: Brrr! Elde hızla eriyen dondurucu soğukluk!
+
+Yiyecekleri tatlı, acı, ekşi, sıcak ve soğuk kaselere paylaştır!
+Aşağıdaki yiyeceği uygun duyu kasesine dokunarak yerleştir.
+Seçmek için kaseye dokun.
+Bu kaseye koy.
+Yaşasın! Bütün yiyecekleri doğru yerleştirdin!
+
+--------------------------------------------------------------------------------
+8. SAYILAR VE ALFABE (A-Z VE 1-100)
+--------------------------------------------------------------------------------
+Alfabe (Harfler ve Örnek Kelimeler):
+A - Arı: Çiçeklerden bal toplayan çalışkan arı.
+B - Balık: Denizde yüzen sevimli balık.
+C - Ceviz: Sert kabuklu lezzetli ceviz.
+Ç - Çilek: Kırmızı ve tatlı çilek.
+D - Deve: Çöl kumlarında yürüyen deve.
+E - Elma: Ağaçta olgunlaşan kırmızı elma.
+F - Fil: Kocaman kulaklı sevimli fil.
+G - Gemi: Mavi denizlerde yüzen büyük gemi.
+Ğ - Dağ / Yağmur: Yüce dağların ardından gelen yağmur.
+H - Havuç: Tavşanların çok sevdiği turuncu havuç.
+I - Ispanak: Güç veren yeşil yapraklı ıspanak.
+İ - İnek: Bize taze ve sağlıklı süt veren inek.
+J - Jeton: Eğlenceli oyun salonu jetonu.
+K - Kedi: Evimizde neşeyle mırlayan tatlı kedi.
+L - Limon: Ekşi ve sulu sarı limon.
+M - Maymun: Ağaç dallarında sallanan maymun.
+N - Nar: Taneleri mücevher gibi parlayan nar.
+O - Orman: Yemyeşil ağaçlarla dolu orman.
+Ö - Ördek: Gölde yüzen sevimli ördek.
+P - Papağan: Rengarenk tüylü konuşan papağan.
+R - Roket: Uzaya fırlatılan güçlü roket.
+S - Sincap: Meşe palamudu saklayan sevimli sincap.
+Ş - Şemsiye: Yağmurdan koruyan renkli şemsiye.
+T - Tavşan: Hızlıca zıplayan beyaz tavşan.
+U - Uçak: Gökyüzünde süzülen gümüş uçak.
+Ü - Üzüm: Asmalardan sarkan tatlı üzüm salkımı.
+V - Vagon: Tren raylarında giden uzun vagon.
+Y - Yıldız: Gece gökyüzünü süsleyen parlak yıldız.
+Z - Zürafa: Ağaçların en tepesine uzanan zürafa.
+
+Sayılar ve Sayma (1-100):
+Bir (1)
+İki (2)
+Üç (3)
+Dört (4)
+Beş (5)
+Altı (6)
+Yedi (7)
+Sekiz (8)
+Dokuz (9)
+On (10)
+Yirmi (20)
+Otuz (30)
+Kırk (40)
+Elli (50)
+Altmış (60)
+Yetmiş (70)
+Seksen (80)
+Doksan (90)
+Yüz (100)
+Saymak için ekrandaki sevimli nesnelere dokunun.
+Ekranda kaç tane var? Dikkatle say ve doğru cevabı seç!
+
+--------------------------------------------------------------------------------
+9. DİJİTAL BAŞARI ROZETLERİ (ACHIEVEMENT BADGES)
+--------------------------------------------------------------------------------
+İlk Keşif: İlk bilgi yarışmasını başarıyla tamamladın!
+Hızlı Çita: Üst üste 3 veya daha fazla soruya doğru cevap vererek seri yakaladın!
+Keskin Nişancı Kaşif: Yarışmada yüzde 80 ve üzeri doğruluk elde ettin!
+Doğa Dahisi: 10 sorunun tamamını kusursuz şekilde doğru yanıtladın!
+Yaban Hayatı Koruyucusu: Hayvanlar alemi yarışmasını başarıyla tamamladın!
+Doğa Muhafızı: Doğa harikaları ve unsurları hakkındaki soruları yanıtladın!
+Kozmik Gezgin: Evren, gezegenler ve yıldızlarla ilgili testleri geçtin!
+Geometri Ustası: 2D ve 3D geometrik şekilleri tanıdın ve sırlarını öğrendin!
+Tat Dedektifi: Yiyecekler, tatlar ve duyular dünyasını keşfettin!
+Harfler ve Sayılar Kahramanı: Alfabe ve sayma yarışmasını başarıyla fethettin!
+Büyük Kaşif: 3 veya daha fazla farklı kategoride testleri tamamladın!
+Usta Natüralist: 5 tam bilgi yarışmasını tamamlayarak büyük bilgi edindin!
+
+--------------------------------------------------------------------------------
+10. SEÇİLMİŞ BİLGİ YARIŞMASI SORULARI VE CEVAPLARI
+--------------------------------------------------------------------------------
+Soru: Dünyanın en hızlı koşan kara hayvanı hangisidir?
+Cevap: Çita
+Açıklama: Çita kısa mesafelerde saatte 100 kilometreden fazla hıza ulaşabilir!
+
+Soru: Gezegenimizde yaşayan en büyük canlı hangisidir?
+Cevap: Mavi Balina
+Açıklama: Mavi balinanın kalbi küçük bir araba büyüklüğündedir!
+
+Soru: Geceleri gökyüzünü aydınlatan Dünyamızın en yakın uydusu hangisidir?
+Cevap: Ay
+Açıklama: Ay kendi ışığını üretmez, Güneşin ışığını yansıtır.
+
+Soru: Hangi geometrik şeklin dört eşit kenarı ve dört dik açısı vardır?
+Cevap: Kare
+Açıklama: Karenin dört kenarı birbirine tam olarak eşittir.
+
+Soru: Limon tattığımızda dilimizde hangi duyuyu hissederiz?
+Cevap: Ekşi tat
+Açıklama: Limonun içindeki sitrik asit ona yoğun ekşi bir tat verir.
+
+Soru: Güneş Sistemimizin merkezindeki devasa parlak yıldız hangisidir?
+Cevap: Güneş
+Açıklama: Güneş bütün gezegenleri çekim gücüyle bir arada tutar.
+
+Soru: Bir üçgenin toplam kaç kenarı ve kaç köşesi vardır?
+Cevap: Üç kenarı ve üç köşesi vardır
+
+Soru: Yağmurdan sonra gökyüzünde oluşan renkli kavis ne olarak adlandırılır?
+Cevap: Gökkuşağı
+Açıklama: Güneş ışınları havadaki yağmur damlacıklarından geçerken yedi renge ayrılır.
+
+Soru: Hangi hayvan ormanın ve savananın kralı olarak bilinir?
+Cevap: Aslan
+
+Soru: Bal arıları çiçeklerden ne toplayarak tatlı bal yaparlar?
+Cevap: Çiçek nektarı ve polen
+
+================================================================================
+SON - Doğa ve Mucizeler Türkçe Ses Veritabanı
+================================================================================
