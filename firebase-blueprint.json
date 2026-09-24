@@ -1,0 +1,145 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Explorer profile for kids with badges and game scores",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The unique Firebase Auth UID of the user",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The chosen explorer nickname or display name",
+          "maxLength": 100
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL to the user avatar image",
+          "maxLength": 500
+        },
+        "soundGameScore": {
+          "type": "number",
+          "description": "High score earned in animal sound mystery game"
+        },
+        "totalExplorations": {
+          "type": "number",
+          "description": "Count of items explored by the user"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the profile was created"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the profile was last updated"
+        }
+      },
+      "required": ["userId", "displayName", "soundGameScore", "totalExplorations", "createdAt", "updatedAt"]
+    },
+    "Favorite": {
+      "title": "Favorite Item",
+      "description": "A bookmarked animal, celestial object, or nature wonder",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the favorite entry",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "The UID of the owner",
+          "maxLength": 128
+        },
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the favorited nature/animal entity",
+          "maxLength": 128
+        },
+        "itemType": {
+          "type": "string",
+          "description": "The category of item",
+          "enum": ["animal", "nature", "universe", "shape", "sensation"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Display name of the favorited item",
+          "maxLength": 100
+        },
+        "emoji": {
+          "type": "string",
+          "description": "Emoji representation",
+          "maxLength": 20
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["id", "userId", "itemId", "itemType", "title", "emoji", "createdAt"]
+    },
+    "Discovery": {
+      "title": "Explorer Discovery",
+      "description": "A field note or discovery logged by a child explorer",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the discovery note",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who logged the discovery",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the discovery or observation",
+          "maxLength": 100
+        },
+        "category": {
+          "type": "string",
+          "description": "Topic of discovery (e.g., Animals, Birds, Night Sky, Weather)",
+          "maxLength": 50
+        },
+        "notes": {
+          "type": "string",
+          "description": "Kid's observations or field notes",
+          "maxLength": 1000
+        },
+        "emoji": {
+          "type": "string",
+          "description": "Icon chosen for the discovery",
+          "maxLength": 20
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["id", "userId", "title", "category", "notes", "emoji", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores individual explorer profiles"
+    },
+    "/users/{userId}/favorites/{favoriteId}": {
+      "schema": "Favorite",
+      "description": "Subcollection of saved favorites for an explorer"
+    },
+    "/users/{userId}/discoveries/{discoveryId}": {
+      "schema": "Discovery",
+      "description": "Subcollection of field discoveries logged by an explorer"
+    }
+  }
+}

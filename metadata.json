@@ -1,0 +1,7 @@
+{
+  "name": "Nature & Wonder - Kids Explorer",
+  "description": "An interactive educational world for children to explore animals, nature elements, cosmic wonders, plane and solid shapes, food sensations, numbers & alphabet with audio and games.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

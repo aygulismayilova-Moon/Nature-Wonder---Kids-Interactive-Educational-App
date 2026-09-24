@@ -1,0 +1,152 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Global Hardened Helpers ---
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // --- Entity Validation Blueprints ---
+    function isValidUser(data, userId) {
+      return data.keys().hasAll(['userId', 'displayName', 'photoURL', 'soundGameScore', 'totalExplorations', 'createdAt', 'updatedAt'])
+        && data.keys().size() == 7
+        && data.userId == userId
+        && data.userId == request.auth.uid
+        && data.displayName is string
+        && data.displayName.size() >= 1
+        && data.displayName.size() <= 100
+        && data.photoURL is string
+        && data.photoURL.size() <= 1000
+        && data.soundGameScore is number
+        && data.soundGameScore >= 0
+        && data.soundGameScore <= 1000000
+        && data.totalExplorations is number
+        && data.totalExplorations >= 0
+        && data.totalExplorations <= 1000000
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidFavorite(data, userId) {
+      return data.keys().hasAll(['id', 'userId', 'itemId', 'itemType', 'title', 'emoji', 'createdAt'])
+        && data.keys().size() == 7
+        && data.userId == userId
+        && data.userId == request.auth.uid
+        && isValidId(data.id)
+        && isValidId(data.itemId)
+        && data.itemType in ['animal', 'nature', 'universe', 'shape', 'sensation']
+        && data.title is string
+        && data.title.size() >= 1
+        && data.title.size() <= 100
+        && data.emoji is string
+        && data.emoji.size() >= 1
+        && data.emoji.size() <= 20
+        && data.createdAt is timestamp;
+    }
+
+    function isValidDiscovery(data, userId) {
+      return data.keys().hasAll(['id', 'userId', 'title', 'category', 'notes', 'emoji', 'createdAt'])
+        && data.keys().size() == 7
+        && data.userId == userId
+        && data.userId == request.auth.uid
+        && isValidId(data.id)
+        && data.title is string
+        && data.title.size() >= 1
+        && data.title.size() <= 100
+        && data.category is string
+        && data.category.size() >= 1
+        && data.category.size() <= 50
+        && data.notes is string
+        && data.notes.size() <= 1000
+        && data.emoji is string
+        && data.emoji.size() >= 1
+        && data.emoji.size() <= 20
+        && data.createdAt is timestamp;
+    }
+
+    // --- Users Collection ---
+    match /users/{userId} {
+      allow get: if isOwner(userId) && isValidId(userId);
+      allow list: if false;
+
+      allow create: if isOwner(userId)
+        && isValidId(userId)
+        && isValidUser(incoming(), userId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isOwner(userId)
+        && isValidId(userId)
+        && isValidUser(incoming(), userId)
+        && incoming().createdAt == existing().createdAt
+        && incoming().userId == existing().userId
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'photoURL', 'soundGameScore', 'totalExplorations', 'updatedAt']);
+
+      allow delete: if isOwner(userId) && isValidId(userId);
+
+      // --- Favorites Subcollection ---
+      match /favorites/{favoriteId} {
+        allow get: if isOwner(userId) && isValidId(userId) && isValidId(favoriteId);
+        allow list: if isOwner(userId) && isValidId(userId);
+
+        allow create: if isOwner(userId)
+          && isValidId(userId)
+          && isValidId(favoriteId)
+          && isValidFavorite(incoming(), userId)
+          && incoming().id == favoriteId
+          && incoming().createdAt == request.time;
+
+        allow update: if false;
+
+        allow delete: if isOwner(userId) && isValidId(userId) && isValidId(favoriteId);
+      }
+
+      // --- Discoveries Subcollection ---
+      match /discoveries/{discoveryId} {
+        allow get: if isOwner(userId) && isValidId(userId) && isValidId(discoveryId);
+        allow list: if isOwner(userId) && isValidId(userId);
+
+        allow create: if isOwner(userId)
+          && isValidId(userId)
+          && isValidId(discoveryId)
+          && isValidDiscovery(incoming(), userId)
+          && incoming().id == discoveryId
+          && incoming().createdAt == request.time;
+
+        allow update: if isOwner(userId)
+          && isValidId(userId)
+          && isValidId(discoveryId)
+          && isValidDiscovery(incoming(), userId)
+          && incoming().createdAt == existing().createdAt
+          && incoming().id == existing().id
+          && incoming().userId == existing().userId
+          && incoming().diff(existing()).affectedKeys().hasOnly(['title', 'category', 'notes', 'emoji']);
+
+        allow delete: if isOwner(userId) && isValidId(userId) && isValidId(discoveryId);
+      }
+    }
+  }
+}
