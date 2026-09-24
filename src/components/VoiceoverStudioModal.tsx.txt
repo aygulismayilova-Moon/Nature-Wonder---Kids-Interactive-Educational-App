@@ -1,0 +1,903 @@
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { voiceoverService, CustomVoiceover } from '../services/voiceoverService';
+import { sound } from '../utils/soundEngine';
+import { FULL_ANIMAL_CATALOG } from '../data/animalsData';
+import { NATURE_ELEMENTS } from '../data/natureData';
+import { UNIVERSE_ELEMENTS } from '../data/universeData';
+import { PLANE_SHAPES, SOLID_SHAPES } from '../data/shapesData';
+import { FOOD_ITEMS } from '../data/foodsData';
+import {
+  Mic,
+  Square,
+  Play,
+  Trash2,
+  Upload,
+  Download,
+  Search,
+  Check,
+  RotateCcw,
+  X,
+  Volume2,
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  Radio,
+  PlusCircle
+} from 'lucide-react';
+
+interface VoiceoverStudioModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  preselectedItemId?: string;
+  preselectedItemTitle?: string;
+  preselectedCategory?: 'animals' | 'nature' | 'universe' | 'shapes' | 'sensations' | 'phrases';
+}
+
+interface ItemToRecord {
+  id: string;
+  title: string;
+  category: 'animals' | 'nature' | 'universe' | 'shapes' | 'sensations' | 'phrases';
+  emoji: string;
+  description: string;
+}
+
+export const VoiceoverStudioModal: React.FC<VoiceoverStudioModalProps> = ({
+  isOpen,
+  onClose,
+  preselectedItemId,
+  preselectedItemTitle,
+  preselectedCategory = 'animals'
+}) => {
+  const {
+    language,
+    t,
+    getLocalizedAnimal,
+    getLocalizedNature,
+    getLocalizedUniverse,
+    getLocalizedPlane,
+    getLocalizedSolid,
+    getLocalizedFood
+  } = useLanguage();
+  const [activeTab, setActiveTab] = useState<'animals' | 'nature' | 'universe' | 'shapes' | 'sensations' | 'custom'>('animals');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [voiceovers, setVoiceovers] = useState<CustomVoiceover[]>([]);
+  const [isVoiceActive, setIsVoiceActive] = useState<boolean>(voiceoverService.isVoiceoverActive());
+
+  // Recording State
+  const [selectedItem, setSelectedItem] = useState<ItemToRecord | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [recordingDuration, setRecordingDuration] = useState(0);
+  const [recordedAudioUrl, setRecordedAudioUrl] = useState<string | null>(null);
+  const [isPlayingPreview, setIsPlayingPreview] = useState(false);
+  const [customPhraseInput, setCustomPhraseInput] = useState('');
+  const [micError, setMicError] = useState<string | null>(null);
+  const [saveSuccessMsg, setSaveSuccessMsg] = useState(false);
+
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+  const timerRef = useRef<number | null>(null);
+  const previewAudioRef = useRef<HTMLAudioElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const backupInputRef = useRef<HTMLInputElement | null>(null);
+
+  const stopRecording = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+      try {
+        mediaRecorderRef.current.stop();
+      } catch (err) {
+        console.warn('Error stopping media recorder:', err);
+      }
+    }
+    setIsRecording(false);
+  }, []);
+
+  // Sync with voiceoverService state
+  useEffect(() => {
+    const updateList = () => {
+      setVoiceovers(voiceoverService.getAllVoiceovers(language));
+      setIsVoiceActive(voiceoverService.isVoiceoverActive());
+    };
+    updateList();
+    const unsub = voiceoverService.subscribe(updateList);
+    return unsub;
+  }, [language]);
+
+  // Handle preselected item from cards
+  useEffect(() => {
+    if (preselectedItemId && isOpen) {
+      const title = preselectedItemTitle || preselectedItemId;
+      setSelectedItem({
+        id: preselectedItemId,
+        title,
+        category: preselectedCategory || 'animals',
+        emoji: '🎙️',
+        description: title
+      });
+      if (preselectedCategory === 'phrases') {
+        setActiveTab('custom');
+      } else {
+        setActiveTab(preselectedCategory as any);
+      }
+    }
+  }, [preselectedItemId, preselectedItemTitle, preselectedCategory, isOpen]);
+
+  // Clear preview when selected item changes
+  useEffect(() => {
+    if (recordedAudioUrl) {
+      URL.revokeObjectURL(recordedAudioUrl);
+    }
+    setRecordedAudioUrl(null);
+    setIsRecording(false);
+    setRecordingDuration(0);
+    setMicError(null);
+    setSaveSuccessMsg(false);
+    if (previewAudioRef.current) {
+      previewAudioRef.current.pause();
+      previewAudioRef.current = null;
+    }
+    setIsPlayingPreview(false);
+  }, [selectedItem]);
+
+  // Stop recording on unmount or modal close
+  useEffect(() => {
+    if (!isOpen) {
+      stopRecording();
+      if (previewAudioRef.current) {
+        previewAudioRef.current.pause();
+      }
+    }
+    return () => {
+      stopRecording();
+      if (previewAudioRef.current) {
+        previewAudioRef.current.pause();
+      }
+    };
+  }, [isOpen, stopRecording]);
+
+  // Build catalog list based on active tab
+  const getItemsForCurrentTab = (): ItemToRecord[] => {
+    if (activeTab === 'animals') {
+      return FULL_ANIMAL_CATALOG.slice(0, 100).map((a) => {
+        const loc = getLocalizedAnimal(a);
+        const id = ('id' in a ? (a as any).id : a.name.toLowerCase().replace(/\s+/g, '_'));
+        return {
+          id,
+          title: loc.name,
+          category: 'animals',
+          emoji: a.emoji || '🐾',
+          description: loc.childDescription || loc.funFact || a.fact
+        };
+      });
+    }
+
+    if (activeTab === 'nature') {
+      return NATURE_ELEMENTS.map((elem) => {
+        const loc = getLocalizedNature(elem);
+        return {
+          id: elem.id,
+          title: loc.name,
+          category: 'nature',
+          emoji: '🌿',
+          description: `${loc.name}. ${loc.description}`
+        };
+      });
+    }
+
+    if (activeTab === 'universe') {
+      return UNIVERSE_ELEMENTS.map((u) => {
+        const loc = getLocalizedUniverse(u);
+        return {
+          id: u.id,
+          title: loc.name,
+          category: 'universe',
+          emoji: '✨',
+          description: `${loc.name}. ${loc.description}`
+        };
+      });
+    }
+
+    if (activeTab === 'shapes') {
+      const plane = PLANE_SHAPES.map((s) => {
+        const loc = getLocalizedPlane(s);
+        return {
+          id: s.id,
+          title: loc.name,
+          category: 'shapes' as const,
+          emoji: '🔷',
+          description: `${loc.name}! ${loc.description}`
+        };
+      });
+      const solid = SOLID_SHAPES.map((s) => {
+        const loc = getLocalizedSolid(s);
+        return {
+          id: s.id,
+          title: loc.name,
+          category: 'shapes' as const,
+          emoji: '📦',
+          description: `${loc.name}! ${loc.description}`
+        };
+      });
+      return [...plane, ...solid];
+    }
+
+    if (activeTab === 'sensations') {
+      return FOOD_ITEMS.map((f) => {
+        const loc = getLocalizedFood(f);
+        return {
+          id: f.id,
+          title: loc.name,
+          category: 'sensations',
+          emoji: f.emoji || '🍽️',
+          description: `${loc.name}. ${loc.spokenQuote}`
+        };
+      });
+    }
+
+    return [];
+  };
+
+  const currentItems = getItemsForCurrentTab();
+  const filteredItems = currentItems.filter((it) =>
+    it.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    it.id.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // --- Microphone Recording Controls ---
+  const startRecording = async () => {
+    setMicError(null);
+    setSaveSuccessMsg(false);
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      audioChunksRef.current = [];
+
+      // Prefer high-quality standard format
+      const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+        ? 'audio/webm;codecs=opus'
+        : MediaRecorder.isTypeSupported('audio/ogg;codecs=opus')
+        ? 'audio/ogg;codecs=opus'
+        : '';
+
+      const recorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+      mediaRecorderRef.current = recorder;
+
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data);
+        }
+      };
+
+      recorder.onstop = () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: recorder.mimeType || 'audio/webm' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        setRecordedAudioUrl(audioUrl);
+
+        // Stop all media tracks to release microphone
+        stream.getTracks().forEach((track) => track.stop());
+      };
+
+      recorder.start(200);
+      setIsRecording(true);
+      setRecordingDuration(0);
+
+      // Start elapsed timer
+      timerRef.current = window.setInterval(() => {
+        setRecordingDuration((prev) => prev + 1);
+      }, 1000);
+    } catch (err: any) {
+      console.warn('Microphone error:', err);
+      setMicError(t('micPermissionPrompt'));
+      setIsRecording(false);
+    }
+  };
+
+  // Preview Playback
+  const togglePlayPreview = () => {
+    if (!recordedAudioUrl) return;
+
+    if (isPlayingPreview && previewAudioRef.current) {
+      previewAudioRef.current.pause();
+      setIsPlayingPreview(false);
+      return;
+    }
+
+    const audio = new Audio(recordedAudioUrl);
+    previewAudioRef.current = audio;
+    setIsPlayingPreview(true);
+
+    audio.onended = () => {
+      setIsPlayingPreview(false);
+    };
+    audio.onerror = () => {
+      setIsPlayingPreview(false);
+    };
+
+    audio.play().catch(() => setIsPlayingPreview(false));
+  };
+
+  // Save Recorded or Uploaded Voiceover
+  const handleSaveRecording = async () => {
+    if (!selectedItem || !recordedAudioUrl) return;
+
+    // Convert blob to Base64 Data URL for persistent storage in IndexedDB
+    try {
+      const response = await fetch(recordedAudioUrl);
+      const blob = await response.blob();
+
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        const base64data = reader.result as string;
+        await voiceoverService.saveVoiceover({
+          id: selectedItem.id,
+          title: selectedItem.title,
+          category: selectedItem.category,
+          language,
+          audioDataUrl: base64data,
+          duration: recordingDuration || 2,
+          source: 'mic',
+          transcript: selectedItem.description
+        });
+
+        sound.playSuccess();
+        setSaveSuccessMsg(true);
+        setTimeout(() => setSaveSuccessMsg(false), 3500);
+      };
+      reader.readAsDataURL(blob);
+    } catch (err) {
+      console.warn('Save voiceover error:', err);
+    }
+  };
+
+  // File Upload Handler
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file || !selectedItem) return;
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64Audio = e.target?.result as string;
+      if (base64Audio) {
+        await voiceoverService.saveVoiceover({
+          id: selectedItem.id,
+          title: selectedItem.title,
+          category: selectedItem.category,
+          language,
+          audioDataUrl: base64Audio,
+          duration: 3,
+          source: 'file',
+          transcript: selectedItem.description
+        });
+        sound.playClick();
+        setSaveSuccessMsg(true);
+        setTimeout(() => setSaveSuccessMsg(false), 3500);
+      }
+    };
+    reader.readAsDataURL(file);
+    if (event.target) event.target.value = '';
+  };
+
+  // Add Custom Phrase
+  const handleAddCustomPhrase = () => {
+    const trimmed = customPhraseInput.trim();
+    if (!trimmed) return;
+
+    const slug = 'phrase_' + trimmed.toLowerCase().replace(/[^a-z0-9əğıöşüç]+/gi, '_').slice(0, 30);
+    setSelectedItem({
+      id: slug,
+      title: trimmed,
+      category: 'phrases',
+      emoji: '💬',
+      description: trimmed
+    });
+    setCustomPhraseInput('');
+  };
+
+  // Delete Voiceover
+  const handleDeleteVoiceover = async (id: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    await voiceoverService.deleteVoiceover(id, language);
+    sound.playClick();
+  };
+
+  // Test Play Item Voiceover
+  const handlePlayVoiceover = async (id: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    await voiceoverService.playVoiceover(id, language);
+  };
+
+  // Export & Import
+  const handleExportBackup = () => {
+    const jsonStr = voiceoverService.exportBackup();
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `NatureWonder_Voiceovers_${language}_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImportBackup = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const text = e.target?.result as string;
+      if (text) {
+        const count = await voiceoverService.importBackup(text);
+        if (count > 0) {
+          sound.playSuccess();
+          alert(`${count} səs uğurla bərpa edildi!`);
+        }
+      }
+    };
+    reader.readAsText(file);
+    if (event.target) event.target.value = '';
+  };
+
+  const formatTimer = (sec: number) => {
+    const m = Math.floor(sec / 60).toString().padStart(2, '0');
+    const s = (sec % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
+  const totalRecordedCount = voiceovers.length;
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/70 backdrop-blur-md animate-in fade-in duration-200">
+      <div
+        id="voiceover-studio-modal"
+        className="relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl border-4 border-amber-300 flex flex-col max-h-[92vh] overflow-hidden"
+      >
+        {/* Header */}
+        <div className="bg-gradient-to-r from-amber-50 via-emerald-50 to-teal-50 px-5 py-4 border-b border-amber-200 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 to-emerald-400 flex items-center justify-center text-white shadow-md">
+              <Mic className="w-6 h-6 animate-pulse" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl font-black text-slate-800 tracking-tight">{t('voiceoverStudio')}</h2>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  {totalRecordedCount} {t('recordedCount')}
+                </span>
+              </div>
+              <p className="text-xs font-medium text-slate-500 mt-0.5">{t('voiceoverStudioDesc')}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {/* Custom Voice Toggle */}
+            <button
+              id="toggle-custom-voiceover-active"
+              onClick={() => {
+                const next = !isVoiceActive;
+                voiceoverService.setVoiceoverActive(next);
+                setIsVoiceActive(next);
+                sound.playClick();
+              }}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border shadow-xs ${
+                isVoiceActive
+                  ? 'bg-emerald-600 text-white border-emerald-700 hover:bg-emerald-700'
+                  : 'bg-slate-100 text-slate-600 border-slate-300 hover:bg-slate-200'
+              }`}
+              title={isVoiceActive ? t('customVoiceActive') : t('customVoiceInactive')}
+            >
+              <Radio className={`w-3.5 h-3.5 ${isVoiceActive ? 'animate-pulse' : ''}`} />
+              <span>{isVoiceActive ? t('customVoiceActive') : t('customVoiceInactive')}</span>
+            </button>
+
+            {/* Backup Export */}
+            <button
+              id="export-voiceovers-button"
+              onClick={handleExportBackup}
+              disabled={totalRecordedCount === 0}
+              className="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-40 text-xs font-bold flex items-center gap-1 shadow-xs transition-colors"
+              title={t('backupDownload')}
+            >
+              <Download className="w-4 h-4 text-emerald-600" />
+            </button>
+
+            {/* Backup Import */}
+            <input
+              type="file"
+              ref={backupInputRef}
+              onChange={handleImportBackup}
+              accept=".json"
+              className="hidden"
+            />
+            <button
+              id="import-voiceovers-button"
+              onClick={() => backupInputRef.current?.click()}
+              className="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-bold flex items-center gap-1 shadow-xs transition-colors"
+              title={t('backupRestore')}
+            >
+              <Upload className="w-4 h-4 text-amber-600" />
+            </button>
+
+            {/* Close */}
+            <button
+              id="close-voiceover-studio-button"
+              onClick={onClose}
+              className="p-2 rounded-xl bg-slate-100 text-slate-500 hover:bg-rose-100 hover:text-rose-600 transition-colors ml-1"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Studio Content Area */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
+          {/* Active Recording Deck */}
+          <div className="bg-gradient-to-b from-amber-50/70 to-emerald-50/70 border-2 border-amber-300/80 rounded-2xl p-4 sm:p-5 shadow-inner">
+            {selectedItem ? (
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-4xl filter drop-shadow-sm">{selectedItem.emoji}</span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-lg font-black text-slate-800">{selectedItem.title}</h3>
+                        <span className="text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800 px-2 py-0.5 rounded-md border border-amber-200">
+                          {selectedItem.category}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-600 font-medium max-w-xl line-clamp-2 mt-0.5">
+                        {selectedItem.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Switch item */}
+                  <button
+                    onClick={() => setSelectedItem(null)}
+                    className="text-xs font-bold text-slate-500 hover:text-slate-800 underline underline-offset-2"
+                  >
+                    {t('selectAnotherItem')}
+                  </button>
+                </div>
+
+                {/* Microphone Recording Controls */}
+                <div className="bg-white rounded-2xl p-4 border border-amber-200 flex flex-wrap items-center justify-between gap-4 shadow-xs">
+                  <div className="flex items-center gap-3">
+                    {!isRecording ? (
+                      <button
+                        id="start-mic-recording-button"
+                        onClick={startRecording}
+                        className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-95"
+                      >
+                        <Mic className="w-4 h-4" />
+                        <span>{t('recordVoice')}</span>
+                      </button>
+                    ) : (
+                      <button
+                        id="stop-mic-recording-button"
+                        onClick={stopRecording}
+                        className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-95 animate-pulse"
+                      >
+                        <Square className="w-4 h-4 text-rose-400 fill-rose-400" />
+                        <span>{t('stopRecording')}</span>
+                      </button>
+                    )}
+
+                    {/* Timer */}
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-xl border border-slate-200">
+                      <div className={`w-2.5 h-2.5 rounded-full ${isRecording ? 'bg-rose-500 animate-ping' : 'bg-slate-400'}`} />
+                      <span className="font-mono text-sm font-black text-slate-800">
+                        {formatTimer(recordingDuration)}
+                      </span>
+                    </div>
+
+                    {isRecording && (
+                      <span className="text-xs font-bold text-rose-600 animate-pulse">
+                        {t('recordingInProgress')}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Playback Preview & Actions */}
+                  {recordedAudioUrl && !isRecording && (
+                    <div className="flex flex-wrap items-center gap-2 animate-in fade-in">
+                      <button
+                        id="preview-recorded-audio-button"
+                        onClick={togglePlayPreview}
+                        className="px-3.5 py-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold text-xs flex items-center gap-1.5 transition-colors"
+                      >
+                        {isPlayingPreview ? (
+                          <>
+                            <Square className="w-3.5 h-3.5 fill-emerald-800" />
+                            <span>{t('stopRecording')}</span>
+                          </>
+                        ) : (
+                          <>
+                            <Play className="w-3.5 h-3.5 fill-emerald-800" />
+                            <span>{t('listenRecording')}</span>
+                          </>
+                        )}
+                      </button>
+
+                      <button
+                        id="save-recorded-audio-button"
+                        onClick={handleSaveRecording}
+                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs flex items-center gap-1.5 shadow-sm transition-all active:scale-95"
+                      >
+                        <Check className="w-3.5 h-3.5" />
+                        <span>{t('saveVoiceover')}</span>
+                      </button>
+
+                      <button
+                        onClick={startRecording}
+                        className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition-colors"
+                        title={t('recordAgain')}
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Or Upload Audio File */}
+                  {!isRecording && (
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="file"
+                        ref={fileInputRef}
+                        onChange={handleFileUpload}
+                        accept="audio/*"
+                        className="hidden"
+                      />
+                      <button
+                        id="upload-audio-file-button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 border border-slate-200 transition-colors"
+                      >
+                        <Upload className="w-3.5 h-3.5 text-slate-500" />
+                        <span>{t('uploadAudio')}</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Notifications */}
+                {micError && (
+                  <div className="text-xs font-bold text-rose-600 bg-rose-50 border border-rose-200 p-2.5 rounded-xl">
+                    {micError}
+                  </div>
+                )}
+                {saveSuccessMsg && (
+                  <div className="text-xs font-black text-emerald-800 bg-emerald-100 border border-emerald-300 p-2.5 rounded-xl flex items-center gap-2 animate-in zoom-in-95">
+                    <Sparkles className="w-4 h-4 text-emerald-600" />
+                    <span>{t('recordingSuccess')}</span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="text-center py-6">
+                <div className="w-12 h-12 mx-auto rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mb-2">
+                  <Mic className="w-6 h-6" />
+                </div>
+                <h3 className="text-base font-black text-slate-800">{t('selectItemToRecord')}</h3>
+                <p className="text-xs font-medium text-slate-500 mt-1 max-w-md mx-auto">
+                  {t('voiceoverInstruction')}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Catalog Navigation Tabs */}
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-2xl border border-slate-200 overflow-x-auto">
+                <button
+                  onClick={() => setActiveTab('animals')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                    activeTab === 'animals' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <span>🦁</span>
+                  <span>{language === 'az' ? 'Heyvanlar' : language === 'tr' ? 'Hayvanlar' : language === 'ru' ? 'Животные' : 'Animals'}</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('nature')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                    activeTab === 'nature' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <span>🌿</span>
+                  <span>{language === 'az' ? 'Təbiət' : language === 'tr' ? 'Doğa' : language === 'ru' ? 'Природа' : 'Nature'}</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('universe')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                    activeTab === 'universe' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <span>🪐</span>
+                  <span>{language === 'az' ? 'Kainat' : language === 'tr' ? 'Evren' : language === 'ru' ? 'Вселенная' : 'Universe'}</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('shapes')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                    activeTab === 'shapes' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <span>🔷</span>
+                  <span>{language === 'az' ? 'Fiqurlar' : language === 'tr' ? 'Şekiller' : language === 'ru' ? 'Фигуры' : 'Shapes'}</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('sensations')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                    activeTab === 'sensations' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <span>🍽️</span>
+                  <span>{language === 'az' ? 'Dadlar' : language === 'tr' ? 'Tatlar' : language === 'ru' ? 'Вкусы' : 'Flavors'}</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('custom')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                    activeTab === 'custom' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <span>💬</span>
+                  <span>{t('categoryPhrases')}</span>
+                </button>
+              </div>
+
+              {/* Search Box */}
+              {activeTab !== 'custom' && (
+                <div className="relative w-full sm:w-64">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder={t('searchItemsToRecord')}
+                    className="w-full pl-9 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Custom Phrase Entry Tab */}
+            {activeTab === 'custom' && (
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+                <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider">{t('recordCustomPhrase')}</h4>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={customPhraseInput}
+                    onChange={(e) => setCustomPhraseInput(e.target.value)}
+                    placeholder={t('enterPhrasePlaceholder')}
+                    onKeyDown={(e) => e.key === 'Enter' && handleAddCustomPhrase()}
+                    className="flex-1 px-3.5 py-2 bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-300"
+                  />
+                  <button
+                    onClick={handleAddCustomPhrase}
+                    disabled={!customPhraseInput.trim()}
+                    className="px-4 py-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-40 text-slate-900 font-black text-xs rounded-xl flex items-center gap-1.5 transition-colors shadow-xs"
+                  >
+                    <PlusCircle className="w-4 h-4" />
+                    <span>{t('selectAction')}</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Items Grid */}
+            {activeTab !== 'custom' && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-h-[400px] overflow-y-auto pr-1">
+                {filteredItems.map((item) => {
+                  const hasVo = voiceoverService.hasVoiceover(item.id, language);
+                  const isCurrent = selectedItem?.id === item.id;
+
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() => {
+                        setSelectedItem(item);
+                        sound.playClick();
+                      }}
+                      className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-2.5 ${
+                        isCurrent
+                          ? 'border-amber-400 bg-amber-50/80 shadow-sm ring-2 ring-amber-300/60'
+                          : hasVo
+                          ? 'border-emerald-200 bg-emerald-50/50 hover:bg-emerald-50'
+                          : 'border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span className="text-2xl">{item.emoji}</span>
+                        <div className="min-w-0">
+                          <p className="text-xs font-black text-slate-800 truncate">{item.title}</p>
+                          <p className="text-[11px] text-slate-500 truncate">{item.id}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-1 shrink-0">
+                        {hasVo ? (
+                          <>
+                            <button
+                              onClick={(e) => handlePlayVoiceover(item.id, e)}
+                              className="p-1.5 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-2xs"
+                              title={t('listenRecording')}
+                            >
+                              <Play className="w-3.5 h-3.5 fill-white" />
+                            </button>
+                            <button
+                              onClick={(e) => handleDeleteVoiceover(item.id, e)}
+                              className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 transition-colors"
+                              title={t('deleteVoiceover')}
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              setSelectedItem(item);
+                              sound.playClick();
+                            }}
+                            className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-amber-100 hover:text-amber-800 text-slate-600 font-bold text-[11px] flex items-center gap-1 transition-colors"
+                          >
+                            <Mic className="w-3 h-3 text-rose-500" />
+                            <span>{t('recordVoice')}</span>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* List of Custom Voiceovers Recorded */}
+            {voiceovers.length > 0 && (
+              <div className="border-t border-slate-200 pt-4 mt-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-xs font-black text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                    <Layers className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>{t('readyRecordings')} ({voiceovers.length})</span>
+                  </h4>
+                </div>
+
+                <div className="flex flex-wrap gap-2 max-h-36 overflow-y-auto">
+                  {voiceovers.map((vo) => (
+                    <div
+                      key={vo.id}
+                      className="px-2.5 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-2 text-xs font-bold text-emerald-950 shadow-2xs"
+                    >
+                      <button
+                        onClick={() => handlePlayVoiceover(vo.id)}
+                        className="hover:text-emerald-600 flex items-center gap-1"
+                        title={t('listenRecording')}
+                      >
+                        <Volume2 className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>{vo.title}</span>
+                      </button>
+                      <button
+                        onClick={() => handleDeleteVoiceover(vo.id)}
+                        className="text-slate-400 hover:text-rose-600 ml-1"
+                        title={t('delete')}
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
